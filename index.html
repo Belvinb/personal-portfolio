@@ -268,7 +268,7 @@
             </div><!-- end title -->
             <div class="row">
                 <div class="col-md-8 " style="color:blue;">
-                    <form name="myForm" id="gform" method="post" onsubmit="return validateForm()" action="https://script.google.com/macros/s/AKfycbwYNPe2H-ftsnv4IPqeIFabW7azR84O8AEV_9DqPhbYkWucgJC_gsSwhKKKhTSwSKD-/exec">
+                    <form name="submit-form" id="gform" onsubmit="return validateForm()" action="">
                         <div>
 
                             <label for="fname">Name</label>
@@ -347,6 +347,25 @@
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script src="js/jquery.vide.js"></script>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwYNPe2H-ftsnv4IPqeIFabW7azR84O8AEV_9DqPhbYkWucgJC_gsSwhKKKhTSwSKD-/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 </body>
 </html>
