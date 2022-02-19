@@ -268,40 +268,28 @@
             </div><!-- end title -->
             <div class="row">
                 <div class="col-md-8 " style="color:blue;">
-                    <form name="submit-form" id="submit-form" onsubmit="return validateForm()" action="">
-                        <div>
-
-                            <label for="fname">Name</label>
-                            <div>
-
-                                <input type="text" id="fname" name="name" placeholder="enter your name" >
-                            </div>
-                        </div>
-                        <div>
-
-                            <label for="fnumber">Number</label>
-                            <div>
-
-                                <input type="text" id="fnumber" name="number" placeholder="enter your Number" >
-                            </div>
-                        </div>
-                        <div>
-                            <label for="femail">Email</label>
-                            <div>
-
-                                <input type="text" id="femail" name="email" placeholder="enter your email" >
-                            </div>
+                    <form name="myForm" id="submit-form" onsubmit="return validateForm()" action="">
+                        <div class="formdesign" id="name">
+                            Name:<input type="text" name="fname"><span class="formerror"></span>
 
                         </div>
-                        <div>
-                            <label for="subject">Message</label>
-                            <div>
+                        <div class="formdesign" id="email">
+                            Email:<input type="email" name="femail"><span class="formerror"></span>
 
-                            </div>
+                        </div>
+                        <div class="formdesign" id="phone">
+                            Phone:<input type="phone" name="fphone"><span class="formerror"></span>
+
+                        </div>
+                        Message
+                        <div class="formdesign" id="name">
+
                             <textarea name="message" id="subject" placeholder="Write something....." cols="30" rows="10"></textarea>
-                            <input type="submit" value="submit">
-                        </div>
+                            <input class="but" type="submit" value="submit">
 
+                        </div>    
+
+ 
 
                         </form>
                 
@@ -354,12 +342,12 @@
                 url:"https://script.google.com/macros/s/AKfycbwYNPe2H-ftsnv4IPqeIFabW7azR84O8AEV_9DqPhbYkWucgJC_gsSwhKKKhTSwSKD-/exec",
                 data:$("#submit-form").serialize(),
                 method:"post",
-                success:function (response){
+                success:function validateForm (response){
                     alert("Form submitted successfully")
                     window.location.reload()
                     //window.location.href="https://google.com"
                 },
-                error:function (err){
+                error:function validateForm(err){
                     alert("Something Error")
     
                 }
